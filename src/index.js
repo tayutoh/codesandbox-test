@@ -74,19 +74,19 @@ console.log(message2);
 // function func1(str) {
 //   return str;
 // }
-const func1 = function (str) {
-  return str;
-};
-console.log(func1("🍊func1🍊"));
+// const func1 = function (str) {
+//   return str;
+// };
+// console.log(func1("🍊func1🍊"));
 
-// アロー関数
-const func2 = (str) => {
-  return str;
-};
-console.log(func2("🍋func2🍋"));
+// // アロー関数
+// const func2 = (str) => {
+//   return str;
+// };
+// console.log(func2("🍋func2🍋"));
 
-const func3 = (num1, num2) => num1 + num2;
-console.log(func3(10, 20));
+// const func3 = (num1, num2) => num1 + num2;
+// console.log(func3(10, 20));
 
 /**
  * 分割代入
@@ -113,6 +113,117 @@ console.log(profileMessage4);
 /**
  * デフォルト値
  */
-const sayHello = (sayName = "ゲスト") =>
-  console.log(`こんにちは🐇${sayName}🐇さん！`);
-console.log(sayHello("らびんご"));
+// const sayHello = (sayName = "ゲスト") =>
+//   console.log(`こんにちは🐇${sayName}🐇さん！`);
+// // console.log(sayHello("らびんご"));
+// sayHello("らびんご");
+
+/**
+ * スプレッド構文
+ */
+// 配列の展開
+// const arr1 = [1, 2];
+// // console.log(arr1);
+// // console.log(...arr1);
+
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]);
+// sumFunc(...arr1);
+
+// まとめる
+// const arr2 = [1, 2, 3, 4, 5];
+// const [num1, num2, ...arr3] = arr2;
+// console.log(num1);
+// console.log(num2);
+// console.log(arr3);
+
+// 配列のコピー・結合
+// const arr4 = [10, 20];
+// const arr5 = [30, 40];
+
+// const arr6 = [...arr4];
+// console.log(arr6);
+
+// const arr7 = [...arr4, ...arr5];
+// console.log(arr7);
+
+// const arr8 = [...arr4];
+// arr8[0] = 100;
+// console.log(arr8);
+// console.log(arr4);
+
+/**
+ * mapやfilterを使った配列の処理
+ */
+const nameArr = ["もこ", "ラビンゴ", "御団子"];
+// for (let index = 0; index < nameArr.length; index++) {
+//   console.log(`${index + 1}番目は${nameArr[index]}です。`);
+// }
+
+// const nameArr2 = nameArr.map((name) => {
+//   return name;
+// });
+// console.log(nameArr2);
+
+// nameArr.map((name, index) =>
+//   console.log(`${index + 1}番目は🐰${name}ちゃん🐰です！`)
+// );
+
+// const numArr = [1, 2, 3, 4, 5];
+// const newNumArr = numArr.filter((num) => {
+//   return num % 2 === 0;
+// });
+// console.log(newNumArr);
+
+const newNameArr = nameArr.map((name) => {
+  if (name === "御団子") {
+    return name;
+  } else {
+    return `${name}さん`;
+  }
+});
+console.log(...newNameArr);
+
+/**
+ * 三項演算子
+ */
+// ある条件 ? 条件がtrueの時 : 条件がfalseの時
+// const val1 = 0 > 1 ? "trueです" : "falseです";
+// console.log(val1);
+
+const num = 1300;
+// console.log(num.toLocaleString());
+
+// const formattedNum =
+//   typeof num === "number" ? num.toLocaleString() : "数値を設定してください";
+// console.log(formattedNum);
+
+const checkSum = (num1, num2) => {
+  const resultSum = num1 + num2;
+  return resultSum > 100
+    ? `100を超えています！！！:(　現在${resultSum}です`
+    : "許容範囲内です:)";
+};
+console.log(checkSum(90, 10));
+
+/**
+ * 論理演算子の本当の意味
+ */
+// const flag1 = true;
+// const flag2 = true;
+// if (flag1 || flag2) {
+//   console.log("1か2はtrueになります");
+// }
+// if (flag1 && flag2) {
+//   console.log("1も2もtrueになります");
+// }
+
+// || は左側がfalseの場合右側を返す
+// const numpipe = 100;
+// const fee = numpipe || "金額未設定です";
+// console.log(fee);
+
+// && は左側がtrueの場合右側を返す
+const numamp = 200;
+const fee2 = numamp && "なにか設定されました";
+console.log(fee2);
